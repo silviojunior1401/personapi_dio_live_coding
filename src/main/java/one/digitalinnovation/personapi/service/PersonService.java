@@ -52,7 +52,7 @@ public class PersonService {
         Person personToUpdate = personMapper.toModel(personDTO);
 
         Person updatedPerson = personRepository.save(personToUpdate);
-        return createMessageResponse(updatedPerson.getId(), "Updated person with ID ");
+        return createMessageResponse(id, "Updated person with ID ");
     }
 
     private Person verifyIfExists(Long id) throws PersonNotFoundException {

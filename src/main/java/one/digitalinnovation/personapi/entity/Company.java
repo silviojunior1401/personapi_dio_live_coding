@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -14,27 +13,19 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String firstName;
+    private String companyName;
 
     @Column(nullable = false)
-    private String lastName;
+    private String tradingName;
 
     @Column(nullable = false, unique = true)
-    private String cpf;
+    private String cnpj;
 
-    private LocalDate birthDate;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    private List<Phone> phones;
-
-    @ManyToOne
-    @JoinColumn(nullable = true)
-    private Company company;
 }

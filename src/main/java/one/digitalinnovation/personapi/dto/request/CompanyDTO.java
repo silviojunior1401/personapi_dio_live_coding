@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.br.CPF;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
@@ -15,27 +15,20 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonDTO {
+public class CompanyDTO {
 
     private Long id;
 
     @NotEmpty
-    @Size(min = 2, max = 100)
-    private String firstName;
+    @Size(min = 5, max = 200)
+    private String companyName;
 
     @NotEmpty
-    @Size(min = 2, max = 100)
-    private String lastName;
+    @Size(min = 5, max = 200)
+    private String tradingName;
 
     @NotEmpty
-    @CPF
-    private String cpf;
+    @CNPJ
+    private String cnpj;
 
-    private String birthDate;
-
-    @Valid
-    @NotEmpty
-    private List<PhoneDTO> phones;
-
-    private CompanyDTO company;
 }
